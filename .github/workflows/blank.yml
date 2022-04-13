@@ -1,4 +1,7 @@
 name: My-GitHubActions-Basics
+env:
+  APPLICATION_NAME   : "MyFlask"
+  DEPLOY_PACKAGE_NAME: "flask-deploy-ver-${{github.sha }}"
 on:
   push:
        branches:
@@ -9,10 +12,29 @@ jobs:
    steps:
     - name: Print Hello Message
       run : echo "Hello World from Testing job"
+    - name: Execure few commands
+      run    :  |
+          echo "Hello Message1"
+          echo "Hello Message2"
+          echo "Application name:   ${{ env.APPLICATION_NAME }}"
+          
+    - name : List current folder
+      run  :  ls -la
+     
+    - name: Git clone my repo
+      uses  :  actions/checkout@1
+      
+    - name: List current folder
+      run    :  ls -la
 
   my_deploy:
     runs-on: ubuntu-latest
-    needs  : [my_testing]
     steps:
     - name: Print Hello Message
-      run : echo "Print World from Deploy job"
+      run   : echo "Print World from Deploy job"
+    - name: Printing Deployment package
+      run   : echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
+    - name: Lets test some packages if they are here 1
+      run   :  aws --version
+    - name: Lets test some packages if they are here 2
+      run   :  zip
