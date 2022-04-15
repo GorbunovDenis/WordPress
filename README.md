@@ -1,4 +1,4 @@
 # GitHub Actions Part-1 Basics
 
 Status of Last Deployment:<br>
-<img src="https://github.com/GorbunovDenis/WordPress/workflows/My-GitHubActions-Basics/badge.svg?branch=master"><br>
+[![Build Status](https://github.com/GorbunovDenis/WordPress/actions/workflows/main.yml/babge.svg?branch=master)](https://github.com/GorbunovDenis/WordPress/actions/workflows/main.yml)
